@@ -1,1 +1,1 @@
-from pyface import SayHi
+from pyfaceit.pyface import Pyfaceit

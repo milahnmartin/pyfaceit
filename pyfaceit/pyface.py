@@ -1,19 +1,12 @@
 import requests
-import sys
-sys.path.insert(1,'/pyfaceit/keys')
-import keys
 class Pyfaceit:
 
     game_id = "csgo"
-    api_header = {"Authorization":"Bearer " + keys.PYFACEIT_API_KEY,"content-type": "application/json"}
+    api_header = {"Authorization":"Bearer " + '3b5a9d07-4b77-4be4-bf5d-f9ff3d6cb7b6',"content-type": "application/json"}
 
     def __init__(self,pname) -> None:
         self.pname = pname
         self._player_id = None
-
-        
-
-            
     
     
     @property
@@ -29,8 +22,7 @@ class Pyfaceit:
         
     @player_id.setter
     def player_id(self) -> None:
-        print("SETTING PLAYER ID")
-        self._player_id = self.player_id()
+        self._player_id = self.player_id
     
 
     def player_information(self) -> dict:
@@ -64,7 +56,3 @@ class Pyfaceit:
             return None
             
 
-
-
-i = Pyfaceit('Ultrafy')
-print(i.player_stats_map('mirage'))
