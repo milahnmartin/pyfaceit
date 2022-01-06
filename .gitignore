@@ -1,6 +1,4 @@
 venv
-build
-dist
 pyfaceit.egg-info
 notes.txt
 p.py
