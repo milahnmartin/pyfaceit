@@ -1,1 +1,0 @@
-from games.Faceit import Pyfaceit
