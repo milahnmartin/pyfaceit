@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 DESCRIPTION = "Simple Package that allows the extraction of player data, this is a REST api and needs to be ran. This is a flask application"
 LONG_DESCRIPTION = """Popular Online Gaming Platform allows games like counterstrike and much more to be played on their servers,
                 Faceit has created a pretty inrteresting and hard to understand API that can extract player and game data, this package will do all the hard backend stuf for you so you can just simply import the package and query
