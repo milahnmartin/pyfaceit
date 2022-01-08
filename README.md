@@ -14,4 +14,4 @@
   </ul>
   
  <h2>How to Install</h2>
- <h3><b>PIP INSTALL Pyfaceit</h3>
+ <h3><b>PIP INSTALL Pyfaceit</b></h3>
