@@ -25,7 +25,7 @@ setup(
     long_description=long_description,
     packages=find_packages(),
     install_requires=["requests", "flask", "bs4"],
-    keywords=["python", "faceit", "api", "rest api", "get data", "flask"],
+    keywords=["python", "faceit", "api", "rest api", "get data", "flask","python"],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
