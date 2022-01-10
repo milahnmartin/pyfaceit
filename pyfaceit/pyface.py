@@ -28,6 +28,8 @@ class Pyfaceit:
 
     def player_information(self) -> dict:
         try:
+            if self.player_id is None:
+                raise Exception('Player does not exist')
             player_data = requests.get(f"https://open.faceit.com/data/v4/players/{self.player_id}",headers=self.api_header)
             player_data_json = player_data.json()
             return player_data_json
@@ -55,5 +57,3 @@ class Pyfaceit:
 
         except Exception:
             return None
-            
-
