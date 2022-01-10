@@ -1,12 +1,13 @@
 import requests
 class Pyfaceit:
 
-    game_id = "csgo"
-    api_header = {"Authorization":"Bearer " + '3b5a9d07-4b77-4be4-bf5d-f9ff3d6cb7b6',"content-type": "application/json"}
+    
 
     def __init__(self,pname) -> None:
         self.pname = pname
         self._player_id = None
+        self.game_id = "csgo"
+        self.api_header = {"Authorization":"Bearer " + '3b5a9d07-4b77-4be4-bf5d-f9ff3d6cb7b6',"content-type": "application/json"}
     
     
     @property
