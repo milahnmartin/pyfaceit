@@ -2,3 +2,5 @@ venv
 pyfaceit.egg-info
 notes.txt
 p.py
+.vscode
+dist
