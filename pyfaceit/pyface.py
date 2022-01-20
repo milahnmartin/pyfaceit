@@ -2,8 +2,10 @@ import requests
 
 
 class Pyfaceit:
+    '''This Class Will Contain all Methods to retrieve player information from faceit,
+        this including specific data from specific maps, the methods will respond in Python dict.'''
 
-    def __init__(self, pname) -> None:
+    def __init__(self, pname: str) -> None:
         self.pname = pname
         self._player_id = None
         self.game_id = "csgo"
@@ -14,6 +16,8 @@ class Pyfaceit:
 
     @property
     def player_id(self) -> str | int | None:
+        '''Method returns faceit player id that will be usefull and is needed
+            when working with the other methods.'''
         try:
             player_id_request = requests.get(
                 f"https://open.faceit.com/data/v4/players?nickname={self.pname}&game=CSGO",
@@ -30,6 +34,9 @@ class Pyfaceit:
         self._player_id = self.player_id
 
     def player_information(self) -> dict:
+        '''This method returns information that the Faciet API requires for players,
+            Developers would hardly use this method and ismostly used as a private method
+            inside the Pyfaceit class to retrieve other data'''
         try:
             if self.player_id is None:
                 raise Exception('Player does not exist')
@@ -42,6 +49,9 @@ class Pyfaceit:
             return None
 
     def player_stats(self) -> dict:
+        '''This method returns All PLayer faceit data incoluding all map information in a
+            python dict.This method uses the player_id method to retrieve all data from the
+            faceit api.'''
         try:
             player_stats_request = requests.get(
                 f'https://open.faceit.com/data/v4/players/{self.player_id}/stats/{self.game_id}',
@@ -51,16 +61,18 @@ class Pyfaceit:
         except Exception:
             return None
 
-    def player_stats_map(self, pmap) -> dict:
+    def player_stats_map(self, pmap: str) -> dict:
+        '''Method Returns Python dict containing information
+            For specific map'''
         if '_' not in pmap:
             pmap = 'de_' + pmap
 
         try:
             pdata = self.player_stats()
             map_data = pdata['segments']
-            for map in map_data:
-                if map['label'] == pmap:
-                    return map
+            for maps in map_data:
+                if maps['label'] == pmap:
+                    return maps
 
         except Exception:
             return None
