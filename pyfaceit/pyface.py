@@ -67,12 +67,9 @@ class Pyfaceit:
         if '_' not in pmap:
             pmap = 'de_' + pmap
 
-        try:
-            pdata = self.player_stats()
-            map_data = pdata['segments']
-            for maps in map_data:
-                if maps['label'] == pmap:
-                    return maps
-
-        except ValueError:
-            return None
+        pdata = self.player_stats()
+        map_data = pdata['segments']
+        for maps in map_data:
+            if maps['label'] == pmap:
+                return maps
+        return {}
