@@ -15,7 +15,7 @@ class Pyfaceit:
             "content-type": "application/json"}
 
     @property
-    def player_id(self) -> str | int | None:
+    def player_id(self) -> str:
         '''Method returns faceit player id that will be usefull and is needed
             when working with the other methods.'''
         try:
@@ -25,9 +25,8 @@ class Pyfaceit:
             player_id_data = player_id_request.json()
             player_id = player_id_data["player_id"]
             return player_id
-        except KeyError:
-            print('Error Occured', self.pname, 'doesnt exist')
-            return None
+        except KeyError as error:
+            raise KeyError from error
 
     @player_id.setter
     def player_id(self) -> None:
@@ -45,8 +44,8 @@ class Pyfaceit:
                 headers=self.api_header)
             player_data_json = player_data.json()
             return player_data_json
-        except ValueError:
-            return None
+        except KeyError as error:
+            raise KeyError from error
 
     def player_stats(self) -> dict:
         '''This method returns All PLayer faceit data incoluding all map information in a
@@ -58,8 +57,8 @@ class Pyfaceit:
                 headers=self.api_header)
             player_stats_json = player_stats_request.json()
             return player_stats_json
-        except ValueError:
-            return None
+        except KeyError as error:
+            raise KeyError from error
 
     def player_stats_map(self, pmap: str) -> dict:
         '''Method Returns Python dict containing information
