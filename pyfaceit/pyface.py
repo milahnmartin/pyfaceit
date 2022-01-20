@@ -45,7 +45,7 @@ class Pyfaceit:
                 headers=self.api_header)
             player_data_json = player_data.json()
             return player_data_json
-        except Exception:
+        except ValueError:
             return None
 
     def player_stats(self) -> dict:
@@ -58,7 +58,7 @@ class Pyfaceit:
                 headers=self.api_header)
             player_stats_json = player_stats_request.json()
             return player_stats_json
-        except Exception:
+        except ValueError:
             return None
 
     def player_stats_map(self, pmap: str) -> dict:
@@ -74,5 +74,5 @@ class Pyfaceit:
                 if maps['label'] == pmap:
                     return maps
 
-        except Exception:
+        except ValueError:
             return None
