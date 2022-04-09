@@ -5,13 +5,13 @@ class Pyfaceit:
     '''This Class Will Contain all Methods to retrieve player information from faceit,
         this including specific data from specific maps, the methods will respond in Python dict.'''
 
-    def __init__(self, pname: str) -> None:
+    def __init__(self,API_KEY, pname: str) -> None:
+        self.api_key = API_KEY
         self.pname = pname
         self._player_id = None
         self.game_id = "csgo"
         self.api_header = {
-            "Authorization": "Bearer " +
-            '3b5a9d07-4b77-4be4-bf5d-f9ff3d6cb7b6',
+            "Authorization": "Bearer "+self.api_key,
             "content-type": "application/json"}
 
     @property

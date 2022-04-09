@@ -16,8 +16,8 @@ pip install pyfaceit
 ```python
 import pyfaceit
 
-# Creates Instance of Pyfaceit Class
-instance = pyfaceit.Pyfaceit(<faceit name as string>)
+# Creates Instance of Pyfaceit Class with API_KEY
+instance = pyfaceit.Pyfaceit(API_KEY, <faceit name as string>)
 # returns python Dict of all player data
 instance.player_stats()
 
